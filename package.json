@@ -10,7 +10,9 @@
     "now-start": "ETH_NETWORK=testnet node ./src/index.js",
     "dev": "ETH_NETWORK=local node ./src/index.js",
     "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public",
-    "alias": "now alias --token=$NOW_TOKEN"
+    "alias": "now alias --token=$NOW_TOKEN",
+    "local-net": "node_modules/.bin/ganache-cli -i 77 --gasLimit 6000000",
+    "local-deploy": "node ./test/deployer.js"
   },
   "repository": {
     "type": "git",
