@@ -16,6 +16,41 @@ npm install
 npm test
 ```
 
+### Running dev mode
+With all the dependencies installed, you can start the dev server
+
+First step is add the accounts to the `configuration.json` file:
+```javascript
+{
+  local : {
+    ...
+    "users": ['0x0...1', '0x0...2']
+    ...
+  }
+}
+
+```
+Now, we can start Ganache client and run dev server
+
+```bash
+npm run dev-net # Start Ganache client
+npm run dev # Start server with ETH_NETWORK=local.
+```
+When `ETH_NETWORK=local` we run internally a script to deploy WT Index and transfer founds to the user account.
+
+#### Using local swagger
+
+To use Swagger pointing to localhost, you must update `docs/swagger.json`
+
+```javascript
+{
+  "schemes": ["http"],
+  "host": "localhost:3000"
+}
+
+```
+
+
 ## Examples
 ### Wallet
 The very first thing to do, is to add a Wallet. This wallet is used to make
