@@ -11,7 +11,7 @@
     "dev": "ETH_NETWORK=local node ./src/index.js",
     "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public",
     "alias": "now alias --token=$NOW_TOKEN",
-    "dev-net": "node_modules/.bin/ganache-cli -i 77 --gasLimit 6000000"
+    "dev-net": "./src/scripts/dev-net.sh"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 const TruffleContract = require('truffle-contract');
 const Web3 = require('web3');
-const config = require('./config');
+const config = require('../config');
 const WTIndexContract = require('@windingtree/wt-contracts/build/contracts/WTIndex');
 
 const provider = new Web3.providers.HttpProvider(config.get('web3Provider'));
@@ -27,9 +27,9 @@ const getContractWithProvider = (metadata, provider) => {
 };
 
 const deployIndex = async () => {
-  const contract = getContractWithProvider(WTIndexContract, provider);
+  const indexContract = getContractWithProvider(WTIndexContract, provider);
   const accounts = await web3.eth.getAccounts();
-  const { address } = await contract.new({
+  const { address } = await indexContract.new({
     from: accounts[0],
     gas: 6000000,
   });
@@ -37,15 +37,6 @@ const deployIndex = async () => {
   console.log(`WTIndex at ${address}!`);
 };
 
-const transferFunds = async () => {
-  const fundingAccounts = await web3.eth.getAccounts();
-  const userAccounts = config.get('users');
-  userAccounts.forEach(async (to) => {
-    await web3.eth.sendTransaction({ to, from: fundingAccounts[1], value: web3.utils.toWei('2', 'ether') });
-  });
-};
-
 module.exports = {
   deployIndex,
-  transferFunds,
 };
