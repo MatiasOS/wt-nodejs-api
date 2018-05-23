@@ -23,7 +23,7 @@ First step is start Ganache.
 npm run dev-net
 ```
 
-Gache starts with 2 default accounts, witch one is an hotel manager with address `0x0ba3cd50b07ee204a47246b6b2f274fd41805c47`.
+Ganache starts with 2 default accounts, one of them is an hotel manager with address `0x0ba3cd50b07ee204a47246b6b2f274fd41805c47`.
 The id for this account is `9a4ce26b-80d7-4c71-8d5b-5518b75f7b55` and is stored
 encrypted in `keys/9a4ce26b-80d7-4c71-8d5b-5518b75f7b55.enc`.
 The password for this default waller is `blockchain101`.
